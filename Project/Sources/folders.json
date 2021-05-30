@@ -1,0 +1,23 @@
+{
+	"is": {
+		"groups": [
+			"protocol"
+		],
+		"methods": [
+			"test"
+		],
+		"classes": [
+			"ServiceGithub"
+		]
+	},
+	"protocol": {
+		"methods": [
+			"declareProtocols"
+		],
+		"classes": [
+			"MySecondProtocol",
+			"ServiceProtocol"
+		]
+	},
+	"trash": {}
+}
