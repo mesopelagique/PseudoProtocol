@@ -6,11 +6,11 @@
 [![build](https://github.com/mesopelagique/PseudoProtocol/actions/workflows/build.yml/badge.svg)](https://github.com/mesopelagique/PseudoProtocol/actions/workflows/build.yml)
 [![discord][discord-shield]][discord-url]
 
-The aim of this project is to simulate [Protocol](https://en.wikipedia.org/wiki/Protocol_(object-oriented_programming))
+The aim of this project is to simulate [Protocol](https://en.wikipedia.org/wiki/Protocol_(object-oriented_programming)) with runtime check.
 
 ## Create a protocol
 
-First we have the `Protocol` class. All other protocol classes must extends it.
+First we have the `Protocol` class. All others protocols classes must extends it.
 
 ```4d
 Class extends Protocol
@@ -28,12 +28,13 @@ Class constructor
 ## Setup the protocol store
 
 A variable `ps` represent the protocol store.
-You must instanciate it and fill it with all protocols.
+You must instanciate it one time and fill it with all protocols.
+
 To do so just instantiate one times them.
 
 ```4d
 ps:=New object()
-cs.ServiceProtocol.new()
+cs.ServiceProtocol.new() // auto register into ps
 cs.MySecondProtocol.new()
 ```
 
@@ -47,7 +48,7 @@ You have an instance and want to know if all properties and functions match a pr
 $instance:=cs.Github.new()
 ```
 
-You could ask protocol:
+You could ask protocol for that:
 
 ```4d
 If(ps.ServiceProtocol.isInstance($instance))
@@ -55,7 +56,7 @@ If(ps.ServiceProtocol.isInstance($instance))
 End if
 ```
 
-You could also assert if you code need to be called by a correct instance
+You could also assert if you code need to be called by a correct instance type
 
 ```4d
 If (ps.ServiceProtocol.assertedInstance($instance))
