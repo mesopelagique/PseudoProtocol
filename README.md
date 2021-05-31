@@ -40,6 +40,8 @@ cs.MySecondProtocol.new()
 
 then you can access protocol with `ps`: `ps.ServiceProtocol`
 
+or use `psInit` which instanciate all protocols found in class store `cs`.
+
 ## Check if instance implement the protocol
 
 You have an instance and want to know if all properties and functions match a protocol.
