@@ -6,7 +6,9 @@
 [![build](https://github.com/mesopelagique/PseudoProtocol/actions/workflows/build.yml/badge.svg)](https://github.com/mesopelagique/PseudoProtocol/actions/workflows/build.yml)
 [![discord][discord-shield]][discord-url]
 
-The aim of this project is to simulate [Protocol](https://en.wikipedia.org/wiki/Protocol_(object-oriented_programming)) with runtime check.
+The aim of this project is to simulate [Protocol](https://en.wikipedia.org/wiki/Protocol_(object-oriented_programming)).
+
+> The check is at runtime and not at compilation time, too bad.
 
 ## Create a protocol
 
@@ -65,6 +67,8 @@ If (ps.ServiceProtocol.assertedInstance($instance))
     // do something
 End if 
 ```
+
+> 💡 You could do `ASSERT(ps.ServiceProtocol.isInstance(This))` in your class object contructor to check immediately that it follow the protocol rules
 
 ## How it work?
 
