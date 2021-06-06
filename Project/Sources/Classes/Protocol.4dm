@@ -61,3 +61,27 @@ Function _functionSchema()->$schema : Object
 				// XXX could check if "#/definitions/function" also
 		End case 
 	End for each 
+	
+Function defaultImplementation($instance : Object)
+	var $required : Text
+	For each ($required; This:C1470.required)
+		If ($instance[$required]=Null:C1517)
+			var $property : Variant
+			$property:=This:C1470.properties[$required]
+			Case of 
+				: (String:C10($property.$ref)="#/definitions/function")
+					
+					$instance[$required]:=This:C1470[$required]  // copy function
+				: (String:C10($property.call)="object")
+					
+					$instance[$required]:=This:C1470[$required]  // copy function
+					
+				: (Length:C16(String:C10($property.type))>0)
+					
+					$instance[$required]:=This:C1470[$required]  // copy default data
+					
+				Else 
+					
+			End case 
+		End if 
+	End for each 
